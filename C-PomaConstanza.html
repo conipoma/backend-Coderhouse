@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-PomaConstanza</title>
+</head>
+<body>
+
+<script>
+
+class Usuario {
+    constructor(nombre, apellido, libros, mascotas) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.libros = libros;
+        this.mascotas = mascotas;
+};
+
+    getFullName(){ 
+        return `${this.nombre} ${this.apellido}`
+    };
+    addMascotas(mascota){
+        this.mascotas.push(mascota);
+    };
+    getMascotas(){
+        return this.mascotas.length;
+    };
+    addBook(book, autor){
+        this.libros.push({nombre: book, autor: autor});
+    };
+    getBooks(){
+        return this.libros.map(element => element.nombre);
+    }
+}
+
+// Creo persona
+let persona = new Usuario('Constanza', 'Poma', [], []);
+persona.getFullName()
+
+// Agrego mascotas
+persona.addMascotas ('perro');
+persona.addMascotas ('gato');
+persona.addMascotas ('loro');
+
+`${persona.getFullName()} tiene ${persona.getMascotas()} mascotas`
+
+// Agrego libros
+persona.addBook('Tokio Blues','Haruki Murakami')
+persona.addBook('CRÓNICA DEL PÁJARO QUE DA CUERDA AL MUNDO HARUKI MURAKAMI','Haruki Murakami')
+
+
+persona.getBooks()
+
+</script>
+</body>
+</html>
